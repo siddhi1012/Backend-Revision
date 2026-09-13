@@ -63,3 +63,40 @@ console.log(parent.firstElementChild);
 console.log(parent.lastElementChild);
 console.log(second.previousElementSibling);
 console.log(first.nextElementSibling);
+console.log(parent.childNodes)
+
+const li1 = document.createElement("li");
+li1.textContent = "Java";
+document.body.append(li1);
+
+const li2 = document.createElement("li");
+li2.textContent = "Python";
+document.body.append(li2);
+
+const li3 = document.createElement("li");
+li3.textContent = "JS"
+document.body.append(li3);
+
+
+const p = document.createElement("p");
+p.textContent = "I Love to Write Code in Javascript";
+document.body.appendChild(p);
+
+const card = document.createElement("div");
+card.classList.add("card");
+const h2 = document.createElement("h2");
+h2.textContent = "Javascipt";
+const p2 = document.createElement("p");
+p2.textContent = "Learn DOM manipulation";
+card.append(h2, p2);
+document.body.appendChild(card);
+
+const button = document.createElement("button");
+button.textContent = "Submit";
+document.body.append(button);
+const button2 = document.createElement("button");
+button2.textContent = "Cancel";
+button.insertAdjacentElement("afterbegin",button2)
+
+const b = document.querySelector("#btn3");
+b.remove("button");
