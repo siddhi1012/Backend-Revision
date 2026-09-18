@@ -37,3 +37,30 @@ li4.textContent = "mango";
 li5.textContent = "cherry";
 document.querySelector("ul").append(li4);
 document.querySelector("ul").append(li5);
+
+// Delete button in a dynamic table
+// closest() -> it finds nearest ancester matching selector
+
+const table = document.querySelector("#user");
+table.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete")) {
+        const row = event.target.closest("tr");
+        row.remove();
+    }
+})
+
+// Add items to a list
+const input = document.querySelector("#input");
+const button = document.querySelector("#addBtn");
+const list = document.querySelector("#taskList");
+
+button.addEventListener("click", (event) => {
+    const value = input.value.trim();
+    if (!value) return;
+    const li = document.createElement("li");
+    li.textContent = value;
+    list.appendChild(li);
+    input.value = " ";
+})
+
+// Delete dynamically added list items
