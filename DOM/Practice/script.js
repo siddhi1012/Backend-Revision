@@ -64,3 +64,13 @@ button.addEventListener("click", (event) => {
 })
 
 // Delete dynamically added list items
+list.addEventListener("click", (event) => {
+    if (event.target.tagName === "li") {
+        event.taget.remove();
+    }
+})
+
+// DOMContentLoaded 
+document.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM is Ready");
+})
