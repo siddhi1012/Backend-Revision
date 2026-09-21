@@ -27,4 +27,18 @@ promise.then((result) => {
     .finally(() => {
         console.log("Operation Completed");
     })
+
+// Promise Chain 
+
+getuser().then(user => {
+    return getOrder(user.id);
+})
+    .then(order => {
+        console.log(order);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+  
+// async await 
     
