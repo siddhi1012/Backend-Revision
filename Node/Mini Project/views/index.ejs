@@ -38,7 +38,10 @@
             <%= val
              %>
           </h1>
-          <a class="text-blue-500 inline-block mt-3" href="">Read More.</a>
+          <div class="flex mt-3 w-full justify-between items-center">
+              <a class="text-blue-500 inline-block" href="/file/<%= val %>">Read More</a>
+              <a class="text-zinc-600" a href="/edit/<%= val %>">edit filename</a>
+          </div>
         </div>
           <%  }) %>
       <% }else{ %>
