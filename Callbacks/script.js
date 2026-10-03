@@ -54,3 +54,57 @@ function Delay(func) {
 Delay(function () {
     console.log("Hey")
 })
+
+//callback hell
+function wakeup(callback) {
+    console.log("1.Wake Up");
+    callback();
+}
+function takeBath(callback) {
+    console.log("2. Take a bath");
+    callback();
+}
+function goToCololege(callback) {
+    console.log("3. Go to College");
+    callback();
+}
+
+wakeup(function () {
+    takeBath(function () {
+        goToCololege(function () {
+            console.log("Done");
+        })
+    })
+})
+
+// Promise 
+let pr = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let rn = Math.floor(Math.random() * 10);
+        if (rn > 5) {
+            resolve("promise resolve:" + rn);
+        } else {
+            reject("Promise reject:" + rn);
+        }
+    }, 3000);
+})
+
+pr
+    .then((val) => {
+        console.log(val);
+    })
+    .catch((val) => {
+        console.log(val);
+    })
+
+// Async/Await
+async function Test() {
+    try {
+        let val = await pr;
+        console.log(val);
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+Test();
