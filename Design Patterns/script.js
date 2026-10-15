@@ -95,4 +95,7 @@ let ApnaCollege = new YoutubChannel();
 let user1 = new User("Siddhi");
 let user2 = new User("Prasad");
 
+ApnaCollege.subscribe(user1);
+ApnaCollege.subscribe(user2);
+
 ApnaCollege.notify("Live now...")
