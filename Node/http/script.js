@@ -13,9 +13,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {
             "Content-Type": "applicaion/json"
         })
-        return res.end(JSON.stringify([
-            { id: 1, name: "Siddhi" }
-        ]))
+        return res.end(JSON.stringify({ id: 1, name: "Siddhi" }))
     }
     res.writeHead(404);
     res.end("Not Found");
