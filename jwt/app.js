@@ -3,7 +3,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcrypt")
 const session = require("express-session");
-const jwt = require("jsonwebtoken");
+
 
 app.use(cookieParser());
 app.use(session({
@@ -75,19 +75,7 @@ async function verifyPassword() {
 
 }
 verifyPassword();
-
-// create jwt token
-const payload = {
-    userId: 101,
-    role: "student"
-};
-const token = jwt.sign(
-    payload,
-    "mydemo123", {
-        expiresIn: "15m"
-    }
-)
-console.log(token)
+ 
 
 app.listen(3000, () => {
     console.log("Server Listening....");
