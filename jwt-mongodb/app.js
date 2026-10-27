@@ -27,7 +27,7 @@ app.post("/create", (req, res) => {
                 username,
                 email,
                 password: hash,
-                age
+                age 
             })
             res.send(createUser);
         })
