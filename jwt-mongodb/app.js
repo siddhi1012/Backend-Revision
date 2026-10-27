@@ -52,13 +52,13 @@ app.post("/login", async (req, res) => {
         else res.send("Ohhh...You can't login...");
 
     })
-
-
 });
 
 app.get("/logout", (req, res) => {
     res.cookie("token", "")
     res.redirect("/")
 });
+
+
 
 app.listen(3000);
