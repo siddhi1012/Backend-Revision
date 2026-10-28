@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <div
+      class="w-full min-h-screen bg-zinc-900 flex items-center justify-center p-4"
+    >
+      <div
+        class="w-full max-w-lg bg-zinc-800 p-6 sm:p-8 rounded-2xl shadow-2xl"
+      >
+        <!-- Logout Button -->
+        <div class="flex justify-end mb-6">
+          <a
+            href="/logout"
+            class="bg-red-500 hover:bg-red-600 text-white rounded-lg px-4 py-2 text-sm font-medium transition"
+          >
+            Logout
+          </a>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="text-3xl font-bold text-white text-center mb-3">
+          Hello, <%= user.name %>
+        </h1>
+
+        <h3 class="text-zinc-400 text-center mb-6">
+          You can create a new post
+        </h3>
+
+        <!-- Create Post Form -->
+        <form action="/post" method="post" class="flex flex-col gap-4">
+          <textarea
+            name="content"
+            placeholder="What's on your mind?"
+            rows="5"
+            required
+            class="w-full resize-y rounded-xl bg-zinc-700 border border-zinc-600 p-4 text-white placeholder-zinc-400 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition"
+            name="content"
+          ></textarea>
+
+          <input
+            type="submit"
+            value="Create New Post"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl cursor-pointer transition"
+          />
+        </form>
+
+        <!-- Posts Section -->
+        <div class="posts mt-8 border-t border-zinc-700 pt-6">
+          <h3 class="text-xl font-bold text-white mb-5">Your Posts</h3>
+
+          <!-- Post Container -->
+          <div class="postcontainer flex flex-col gap-4">
+            <!-- Single Post -->
+             <% user.posts.reverse().forEach((post) =>{ %>
+
+            
+            <div
+              class="post w-full p-5 bg-zinc-700/60 border border-zinc-600 rounded-xl"
+            >
+              <!-- Post Header -->
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-blue-400 font-semibold">@<%= user.username %></h4>
+              </div>
+
+              <!-- Post Content -->
+              <p class="text-zinc-200 text-sm leading-6 break-words">
+               <%= post.content %>
+              </p>
+              <div class="btns flex gap-4 mt-5">
+                <a class="text-blue-500" href="">Like</a>
+                <a class="text-zinc-400" href="">edit</a>
+              </div>
+            </div>
+              <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
